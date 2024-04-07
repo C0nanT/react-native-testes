@@ -1,8 +1,8 @@
-import green from "..assets/produtores/green.png";
-import grow from "..assets/produtores/grow.png";
-import jennyjack from "..assets/produtores/jenny-jack.png";
-import potager from "..assets/produtores/potager.png";
-import salad from "..assets/produtores/salad.png";
+import green from "../assets/produtores/green.png";
+import grow from "../assets/produtores/grow.png";
+import jennyjack from "../assets/produtores/jenny-jack.png";
+import potager from "../assets/produtores/potager.png";
+import salad from "../assets/produtores/salad.png";
 
 const geraNumero = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);

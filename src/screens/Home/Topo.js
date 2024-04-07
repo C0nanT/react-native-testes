@@ -1,15 +1,27 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, StatusBar } from "react-native";
 import logo from "../../assets/logo.png";
-export default function Topo() {
-  return (
-    <View style={styles.topoContainer}>
-      <StatusBar style="light" />
-      <Image style={styles.imagem} source={logo} />
-      <Text style={styles.textOla}>Olá Conan</Text>
-      <Text style={styles.legenda}>Encontre os melhores produtores</Text>
-    </View>
-  );
+import { carregaProdutores, carregaTopo } from "../../servicos/dados.js";
+class Topo extends React.Component {
+  atualizaTopo() {
+    const retorno = carregaTopo();
+    console.log(retorno);
+  }
+
+  componentDidMount() {
+    this.atualizaTopo();
+  }
+
+  render() {
+    return (
+      <View style={styles.topoContainer}>
+        <StatusBar style="light" />
+        <Image style={styles.imagem} source={logo} />
+        <Text style={styles.textOla}>Olá Conan</Text>
+        <Text style={styles.legenda}>Encontre os melhores produtores</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -33,3 +45,5 @@ const styles = StyleSheet.create({
     color: "#999",
   },
 });
+
+export default Topo;
