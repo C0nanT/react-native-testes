@@ -3,9 +3,16 @@ import { View, Text, Image, StyleSheet, StatusBar } from "react-native";
 import logo from "../../assets/logo.png";
 import { carregaProdutores, carregaTopo } from "../../servicos/dados.js";
 class Topo extends React.Component {
+  state = {
+    topo: {
+      boasVindas: "",
+      legenda: "",
+    },
+  };
+
   atualizaTopo() {
     const retorno = carregaTopo();
-    console.log(retorno);
+    this.setState({ topo: retorno });
   }
 
   componentDidMount() {
@@ -17,8 +24,8 @@ class Topo extends React.Component {
       <View style={styles.topoContainer}>
         <StatusBar style="light" />
         <Image style={styles.imagem} source={logo} />
-        <Text style={styles.textOla}>Olá Conan</Text>
-        <Text style={styles.legenda}>Encontre os melhores produtores</Text>
+        <Text style={styles.textOla}>{this.state.topo.boasVindas}</Text>
+        <Text style={styles.legenda}>{this.state.topo.legenda}</Text>
       </View>
     );
   }
